@@ -9,6 +9,6 @@ sudo docker build -t alpine-chromecast-ip-watcher .
 ## Docker Run Command
 ```
 sudo docker run -dit --restart='always' \
---network host
+--network host \
 alpine-chromecast-ip-watcher
 ```

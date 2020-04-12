@@ -64,15 +64,14 @@ def try_to_get_chromecasts():
 
 
 def try_run_block( options ):
-	for i in range( number_of_tries ):
-		attempt = options[ "function_reference" ]()
+	for i in range( options[ 'number_of_tries' ] ):
+		attempt = options[ 'function_reference' ]()
 		if attempt is not False:
 			return attempt
 		print( f"Couldn't Run '{ options[ 'task_name' ] }', Sleeping for { str( options[ 'sleep_inbetween_seconds' ] ) } Seconds" )
 		time.sleep( options[ 'sleep_inbetween_seconds' ] )
 	if options[ 'reboot_on_failure' ] == True:
 		os.system( "reboot -f" )
-
 
 def run_block()
 	try_run_block({
