@@ -73,7 +73,7 @@ def try_run_block( options ):
 	if options[ 'reboot_on_failure' ] == True:
 		os.system( "reboot -f" )
 
-def run_block()
+def run_block():
 	try_run_block({
 			"task_name": "Find Chromecast Task" ,
 			"number_of_tries": 5 ,
