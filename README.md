@@ -16,9 +16,9 @@ alpine-chromecast-ip-watcher
 
 ## Find the UUID of what will be the 'output' Chromecast
 
-### aka just watch the logs , hopefully will get something later in the config to do this automatically based on common name
+### aka just watch the logs , hopefully will get something later in the config to do this automatically based on friendly name
 ```
-sudo docker logs -f $CONTAINER_ID
+sudo docker logs -f alpine-chromecast-ip-watcher
 ```
 
 ## Then save it into Redis as "CONFIG.CHROMECAST_OUTPUT.UUID"
