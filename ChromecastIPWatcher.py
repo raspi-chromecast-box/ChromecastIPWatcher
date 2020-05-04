@@ -51,13 +51,10 @@ def try_to_get_chromecasts():
 				cast_object[ 'manufacturer' ] = device_info[ 2 ]
 				cast_object[ 'uuid' ] = device_info[ 3 ]
 				cast_object[ 'cast_type' ] = device_info[ 4 ]
-				#cast_object[ 'location' ] = ConfigDataBase.self[ 'location' ]
 				results.append( cast_object )
 				key = "UUIDS." + cast_object[ 'uuid' ]
 				redis_connection.set( key , json.dumps( cast_object ) )
-				print( f"{cast_object[ 'uuid' ]} == {chromecast_output_uuid}" )
 				if cast_object[ 'uuid' ] == chromecast_output_uuid:
-					print( "setting STATE.CHROMECAST_OUTPUT.IP" )
 					redis_connection.set( "STATE.CHROMECAST_OUTPUT.IP" , cast_object[ 'ip' ] )
 		print( results )
 		return results
