@@ -34,7 +34,10 @@ def try_to_get_chromecasts():
 		if redis_connection is False:
 			raise RuntimeError( "Couldn't Connect to Redis" ) from error
 		chromecast_output_uuid = redis_connection.get( "CONFIG.CHROMECAST_OUTPUT.UUID" )
-		chromecast_output_uuid = str( chromecast_output_uuid , 'utf-8' )
+		if chromecast_output_uuid is not None:
+			chromecast_output_uuid = str( chromecast_output_uuid , 'utf-8' )
+		else:
+			chromecast_output_uuid = ""
 		chromecasts = pychromecast.get_chromecasts()
 		results = []
 		for _cast in chromecasts:
